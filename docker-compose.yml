@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  hi-service:
+    build:
+      context: ./hi-service
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    container_name: hi-service
+    environment:
+      - FLASK_ENV=development
+
+  greeting-service:
+    build:
+      context: ./greeting-service
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    container_name: greeting-service
+    environment:
+      - FLASK_ENV=development
+
+  bye-service:
+    build:
+      context: ./bye-service
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5003"
+    container_name: bye-service
+    environment:
+      - FLASK_ENV=development
